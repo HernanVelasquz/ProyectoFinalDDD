@@ -1,21 +1,21 @@
 package co.com.ddd.cuenta.events;
 
-import co.com.ddd.cuenta.values.CuentaId;
+import co.com.ddd.cuenta.values.MenuAutosId;
 import co.com.ddd.cuenta.values.Nombre;
+import co.com.ddd.tiendaautomovil.values.Marca;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class NombreActualizado extends DomainEvent {
-    private final CuentaId cuentaId;
+    private final MenuAutosId menuAutosId;
     private final Nombre nombre;
-
-    public NombreActualizado(CuentaId cuentaId, Nombre nombre) {
+    public NombreActualizado(MenuAutosId menuAutosId, Nombre nombre) {
         super("sofka.cuenta.NombreActualizado");
-        this.cuentaId = cuentaId;
+        this.menuAutosId =  menuAutosId;
         this.nombre = nombre;
     }
 
-    public CuentaId getCuentaId() {
-        return cuentaId;
+    public MenuAutosId menuAutosId() {
+        return menuAutosId;
     }
 
     public Nombre getNombre() {

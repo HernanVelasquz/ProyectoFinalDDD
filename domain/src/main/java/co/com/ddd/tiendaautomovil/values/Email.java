@@ -1,4 +1,4 @@
-package co.com.ddd.cuenta.values;
+package co.com.ddd.tiendaautomovil.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
@@ -35,9 +35,5 @@ public class Email implements ValueObject<String> {
     @Override
     public String value() {
         return value;
-    }
-
-    public Email cambiarEmial(String value){
-        return new Email(value);
     }
 }

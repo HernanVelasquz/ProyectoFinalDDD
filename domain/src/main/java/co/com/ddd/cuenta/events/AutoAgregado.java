@@ -4,16 +4,16 @@ import co.com.ddd.cuenta.values.*;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class AutoAgregado extends DomainEvent {
-    private final CuentaId cuentaId;
+    private final MenuAutosId menuAutos;
     private final Tipo tipo;
     private final Marca marca;
     private final Precio precio;
     private final Nombre nombre;
     private final Modelo modelo;
 
-    public AutoAgregado(CuentaId cuentaId, Tipo tipo, Marca marca, Precio precio, Nombre nombre, Modelo modelo) {
+    public AutoAgregado(MenuAutosId menuAutos, Tipo tipo, Marca marca, Precio precio, Nombre nombre, Modelo modelo) {
         super("sofka.cuenta.AutoAgregado");
-        this.cuentaId = cuentaId;
+        this.menuAutos = menuAutos;
         this.tipo = tipo;
         this.marca = marca;
         this.precio = precio;
@@ -21,27 +21,27 @@ public class AutoAgregado extends DomainEvent {
         this.modelo = modelo;
     }
 
-    public CuentaId getCuentaId() {
-        return cuentaId;
+    public MenuAutosId menuAutosId() {
+        return menuAutos;
     }
 
-    public Tipo getTipo() {
+    public Tipo tipo() {
         return tipo;
     }
 
-    public Marca getMarca() {
+    public Marca marca() {
         return marca;
     }
 
-    public Precio getPrecio() {
+    public Precio precio() {
         return precio;
     }
 
-    public Nombre getNombre() {
+    public Nombre nombre() {
         return nombre;
     }
 
-    public Modelo getModelo() {
+    public Modelo modelo() {
         return modelo;
     }
 }

@@ -6,38 +6,34 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.ddd.ventaautomovil.values.VentaAutomovilId;
 
-import java.util.List;
 import java.util.Objects;
+
 
 public class Cuenta extends AggregateEvent<CuentaId> {
     protected UsuarioSistema usuarioSistema;
     protected Concesionario concesionario;
-    protected MenuAutos menuAutos;
     protected VentaAutomovilId ventaAutomovilId;
-    protected List<MenuAutos> autos;
+    protected MenuAutos autos;
     private UsuarioSistemaId usuarioSistemaId;
     private ConcesionarioId concesionarioId;
     private MenuAutosId menuAutosId;
 
-
-    public Cuenta(CuentaId entityId, VentaAutomovilId ventaAutomovilId, UsuarioSistemaId usuarioSistemaId, ConcesionarioId concesionarioId, MenuAutosId menuAutosId) {
+    public Cuenta(CuentaId entityId, UsuarioSistemaId usuarioSistemaId,NombreUsuario nombreUsuario, Password password, Email email, ConcesionarioId concesionarioId, DireccionConcesionario direccionConcesionario, MenuAutosId menuAutosId, Marca marca, Precio precio,Tipo tipo, Nombre nombre, Modelo modelo) {
         super(entityId);
-        this.ventaAutomovilId = ventaAutomovilId;
-        this.usuarioSistemaId = usuarioSistemaId;
-        this.concesionarioId = concesionarioId;
-        this.menuAutosId = menuAutosId;
-        Objects.requireNonNull(ventaAutomovilId);
         Objects.requireNonNull(usuarioSistemaId);
+        Objects.requireNonNull(nombreUsuario);
+        Objects.requireNonNull(password);
+        Objects.requireNonNull(email);
         Objects.requireNonNull(concesionarioId);
+        Objects.requireNonNull(direccionConcesionario);
         Objects.requireNonNull(menuAutosId);
+        Objects.requireNonNull(marca);
+        Objects.requireNonNull(precio);
+        Objects.requireNonNull(tipo);
+        Objects.requireNonNull(nombre);
+        Objects.requireNonNull(modelo);
         var cuentaId = new CuentaId();
-        appendChange(new CuentaCreada(cuentaId,ventaAutomovilId,usuarioSistemaId,concesionarioId)).apply();
-    }
-
-    public static Cuenta from(CuentaId idCuenta, List<DomainEvent> events){
-        var cueta = new Cuenta(idCuenta);
-        events.forEach(cueta::applyEvent);
-        return cueta;
+        appendChange(new CuentaCreada(usuarioSistemaId, nombreUsuario, password,email, concesionarioId, direccionConcesionario, menuAutosId,marca, precio,tipo, nombre, modelo)).apply();
     }
 
     private Cuenta(CuentaId idCuenta){
@@ -45,39 +41,17 @@ public class Cuenta extends AggregateEvent<CuentaId> {
         subscribe(new CuentaChange(this));
     }
 
-    public void agregarUsuario(CuentaId cuentaId, NombreUsuario nombreUsuario, Password password, Email email){
-        Objects.requireNonNull(cuentaId);
-        Objects.requireNonNull(nombreUsuario);
-        Objects.requireNonNull(password);
-        Objects.requireNonNull(email);
-        appendChange(new UsuarioAgregado(cuentaId,nombreUsuario,password,email)).apply();
+    public void actualizarPrecio(MenuAutosId menuAutosId, Precio precio){
+        Objects.requireNonNull(menuAutosId);
+        Objects.requireNonNull(precio);
+        appendChange(new PrecioActualizado(menuAutosId,precio)).apply();
+    }
+    public void actualizarNombre(MenuAutosId menuAutosId, Nombre nombre){
+        Objects.requireNonNull(menuAutosId);
+        Objects.requireNonNull(nombre);
+        appendChange(new NombreActualizado(menuAutosId,nombre)).apply();
     }
 
-    public void agregarConcesionario(CuentaId cuentaId, DireccionConcesionario direccionConcesionario){
-        Objects.requireNonNull(cuentaId);
-        Objects.requireNonNull(direccionConcesionario);
-        appendChange(new ConcesionarioAgregado(cuentaId,direccionConcesionario)).apply();
-    }
-
-    public void agregarAuto(CuentaId cuentaId, Marca marca, Tipo tipo, Precio precio, Nombre nombre, Modelo modelo){
-        Objects.requireNonNull(cuentaId);
-        Objects.requireNonNull(tipo);
-        Objects.requireNonNull(marca);
-        Objects.requireNonNull(precio);
-        Objects.requireNonNull(nombre);
-        Objects.requireNonNull(modelo);
-        appendChange(new AutoAgregado(cuentaId,tipo,marca,precio,nombre,modelo)).apply();
-    }
-    public void actualizarNombre(CuentaId cuentaId,Nombre nombre){
-        Objects.requireNonNull(cuentaId);
-        Objects.requireNonNull(nombre);
-        appendChange(new NombreActualizado(cuentaId, nombre)).apply();
-    }
-    public void actualizarPrecio(CuentaId cuentaId, Precio precio){
-        Objects.requireNonNull(cuentaId);
-        Objects.requireNonNull(precio);
-        appendChange(new PrecioActualizado(cuentaId,precio)).apply();
-    }
 
     public void actualizarPassword(CuentaId cuentaId, Password password){
         Objects.requireNonNull(cuentaId);

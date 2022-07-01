@@ -1,4 +1,4 @@
-package co.com.ddd.cuenta.values;
+package co.com.ddd.tiendaautomovil.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
@@ -8,8 +8,11 @@ public class Nombre implements ValueObject<String> {
     private final String value;
 
     public Nombre(String value) {
-        if (value.length() < 5){
-            throw new IllegalArgumentException("Nombre no cumple con el formato");
+        if(value.length()<5){
+            throw new IllegalArgumentException("El nombre del cliente no puede ser menor a 5 caracteres");
+        }
+        if(value.length()>50){
+            throw new IllegalArgumentException("El nombre del cliente no puede ser mayor a 50 caracteres");
         }
         this.value = Objects.requireNonNull(value);
     }
@@ -27,13 +30,8 @@ public class Nombre implements ValueObject<String> {
         return Objects.hash(value);
     }
 
-
     @Override
     public String value() {
         return value;
-    }
-
-    public Nombre cambiarNombre(String value){
-        return new Nombre(value);
     }
 }

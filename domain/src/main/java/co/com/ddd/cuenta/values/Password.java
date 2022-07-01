@@ -34,4 +34,8 @@ public class Password implements ValueObject<String> {
     public String value() {
         return value;
     }
+
+    public Password cambiarPasswod(String value){
+        return new Password(value);
+    }
 }

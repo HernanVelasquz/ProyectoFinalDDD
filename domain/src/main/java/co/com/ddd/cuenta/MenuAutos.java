@@ -1,7 +1,6 @@
 package co.com.ddd.cuenta;
 
 import co.com.ddd.cuenta.values.*;
-import co.com.ddd.cuenta.values.*;
 import co.com.sofka.domain.generic.Entity;
 
 import java.util.Objects;
@@ -24,11 +23,11 @@ public class MenuAutos extends Entity<MenuAutosId> {
     }
 
     public void actualizarNombre(Nombre nombre){
-        this.nombre = Objects.requireNonNull(nombre);
+        this.nombre = nombre.cambiarNombre(Objects.requireNonNull(nombre.value()));
     }
 
     public void actualizarPrecio(Precio precio){
-        this.precio = Objects.requireNonNull(precio);
+        this.precio = precio.cambiarPrecio(Objects.requireNonNull(precio).value());
     }
 
     public Marca getMarca() {
