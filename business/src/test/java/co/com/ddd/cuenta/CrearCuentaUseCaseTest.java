@@ -5,6 +5,7 @@ import co.com.ddd.cuenta.events.CuentaCreada;
 import co.com.ddd.cuenta.values.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -54,7 +55,7 @@ class CrearCuentaUseCaseTest {
 
         //assert
         var event = (CuentaCreada) events.get(0);
-        //     Assertions.assertEquals("wisquie",event.getNombreBebida());
-        //     Assertions.assertEquals("Usuario", event.rol().value());
+        Assertions.assertEquals("Hernan", event.nombreUsuario().value());
+        Assertions.assertEquals("Toyota", event.marca().value());
     }
 }

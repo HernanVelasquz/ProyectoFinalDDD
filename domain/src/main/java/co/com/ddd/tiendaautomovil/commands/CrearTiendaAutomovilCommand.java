@@ -3,7 +3,7 @@ package co.com.ddd.tiendaautomovil.commands;
 import co.com.ddd.tiendaautomovil.values.*;
 import co.com.sofka.domain.generic.Command;
 
-public class CrearTiendaAutomovil extends Command {
+public class CrearTiendaAutomovilCommand extends Command {
     private final TiendadId tiendadId;
     private final EmpleadoId empleadoId;
     private final DocumentoEmpleado documentoEmpleado;
@@ -16,7 +16,7 @@ public class CrearTiendaAutomovil extends Command {
     private final ServicioVentaId servicioVentaId;
     private final InformacioAsesorVenta asesorVenta;
 
-    public CrearTiendaAutomovil(TiendadId tiendadId, EmpleadoId empleadoId, DocumentoEmpleado documentoEmpleado, Email email, Nombre nombre, ProductoId idProducto, DescripcioProducto descripcioProducto, Precio precio, Marca marca, ServicioVentaId servicioVentaId, InformacioAsesorVenta asesorVenta) {
+    public CrearTiendaAutomovilCommand(TiendadId tiendadId, EmpleadoId empleadoId, DocumentoEmpleado documentoEmpleado, Email email, Nombre nombre, ProductoId idProducto, DescripcioProducto descripcioProducto, Precio precio, Marca marca, ServicioVentaId servicioVentaId, InformacioAsesorVenta asesorVenta) {
         this.tiendadId = tiendadId;
         this.empleadoId = empleadoId;
         this.documentoEmpleado = documentoEmpleado;

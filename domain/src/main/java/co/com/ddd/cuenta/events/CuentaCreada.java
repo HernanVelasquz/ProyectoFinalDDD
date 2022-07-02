@@ -78,9 +78,7 @@ public class CuentaCreada extends DomainEvent {
         return tipo;
     }
 
-    public Nombre nombre() {
-        return nombre;
-    }
+    public Nombre nombre() {return nombre;}
 
     public Modelo modelo() {
         return modelo;

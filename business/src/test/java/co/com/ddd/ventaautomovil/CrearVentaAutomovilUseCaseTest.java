@@ -7,6 +7,7 @@ import co.com.ddd.ventaautomovil.commands.CrearVentaAutomovilCommand;
 import co.com.ddd.ventaautomovil.values.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -53,5 +54,7 @@ class CrearVentaAutomovilUseCaseTest {
 
         //assert
         var event = (VentaAutomovilCreada) events.get(0);
+        Assertions.assertEquals("2022-07-01",event.fecha().value());
+        Assertions.assertEquals("xxxxx", event.facturaId().value());
     }
 }

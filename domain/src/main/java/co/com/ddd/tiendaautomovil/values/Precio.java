@@ -5,12 +5,9 @@ import co.com.sofka.domain.generic.ValueObject;
 import java.util.Objects;
 
 public class Precio implements ValueObject<Float> {
-    private final Float value;
+    private final float value;
 
-    public Precio(Float value) {
-        if (value.isNaN()){
-            throw new IllegalArgumentException("El precio no es valido");
-        }
+    public Precio(float value) {
         this.value = Objects.requireNonNull(value);
     }
 
