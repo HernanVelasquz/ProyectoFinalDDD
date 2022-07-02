@@ -14,8 +14,8 @@ public class Producto extends Entity<ProductoId> {
     protected Precio precio;
     protected Marca marca;
 
-    public Producto(ProductoId entityId, DescripcioProducto descripcioProducto, Precio precio, Marca marca) {
-        super(entityId);
+    public Producto(ProductoId idProducto, DescripcioProducto descripcioProducto, Precio precio, Marca marca) {
+        super(idProducto);
         this.descripcioProducto = descripcioProducto;
         this.precio = precio;
         this.marca = marca;

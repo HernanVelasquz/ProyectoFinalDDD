@@ -34,4 +34,8 @@ public class Nombre implements ValueObject<String> {
     public String value() {
         return value;
     }
+
+    public Nombre cambiarNombre(String value){
+        return new Nombre(value);
+    }
 }

@@ -1,6 +1,5 @@
-package cuenta;
+package co.com.ddd.cuenta;
 
-import co.com.ddd.cuenta.Cuenta;
 import co.com.ddd.cuenta.commands.CrearCuentaCommand;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;

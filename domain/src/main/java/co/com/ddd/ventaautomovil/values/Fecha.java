@@ -5,10 +5,10 @@ import co.com.sofka.domain.generic.ValueObject;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Fecha implements ValueObject<LocalDate> {
-    private final LocalDate value;
+public class Fecha implements ValueObject<String> {
+    private final String value;
 
-    public Fecha(LocalDate value) {
+    public Fecha(String value) {
         this.value = value;
     }
 
@@ -25,7 +25,7 @@ public class Fecha implements ValueObject<LocalDate> {
         return Objects.hash(value);
     }
 
-    public LocalDate value() {
+    public String value() {
         return value;
     }
 }

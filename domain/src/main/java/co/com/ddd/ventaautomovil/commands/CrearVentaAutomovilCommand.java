@@ -4,7 +4,7 @@ import co.com.ddd.cuenta.values.CuentaId;
 import co.com.ddd.ventaautomovil.values.*;
 import co.com.sofka.domain.generic.Command;
 
-public class CrearVentaAutomovil extends Command {
+public class CrearVentaAutomovilCommand extends Command {
     private final VentaAutomovilId ventaAutomovilId;
     private final CuentaId cuentaId;
     private final FacturaId facturaId;
@@ -17,7 +17,7 @@ public class CrearVentaAutomovil extends Command {
     private final Nombre nombre;
     private final Direccion direccion;
 
-    public CrearVentaAutomovil(VentaAutomovilId ventaAutomovilId, CuentaId cuentaId, FacturaId facturaId, Cantidad cantidad, InformacionCompra informacionCompra, Fecha fecha, ClienteId clienteId, DocumentoCliente documentoCliente, Celular celular, Nombre nombre, Direccion direccion) {
+    public CrearVentaAutomovilCommand(VentaAutomovilId ventaAutomovilId, CuentaId cuentaId, FacturaId facturaId, Cantidad cantidad, InformacionCompra informacionCompra, Fecha fecha, ClienteId clienteId, DocumentoCliente documentoCliente, Celular celular, Nombre nombre, Direccion direccion) {
         this.ventaAutomovilId = ventaAutomovilId;
         this.cuentaId = cuentaId;
         this.facturaId = facturaId;

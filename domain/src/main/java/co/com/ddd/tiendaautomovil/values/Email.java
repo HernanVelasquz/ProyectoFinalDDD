@@ -36,4 +36,7 @@ public class Email implements ValueObject<String> {
     public String value() {
         return value;
     }
+    public Email cambiaremail(String value){
+        return new Email(value);
+    }
 }

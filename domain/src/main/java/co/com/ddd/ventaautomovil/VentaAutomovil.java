@@ -53,7 +53,7 @@ public class VentaAutomovil extends AggregateEvent<VentaAutomovilId> {
         appendChange(new CantidadActualizada(facturaId, cantidad)).apply();
     }
 
-    public void actualizarMarcaVehiculo(FacturaId facturaId, InformacionCompra informacionCompra){
+    public void actualizarInfomacionVehiculo(FacturaId facturaId, InformacionCompra informacionCompra){
         Objects.requireNonNull(facturaId);
         Objects.requireNonNull(informacionCompra);
         appendChange(new InformacionCompraVehiculoActualizada(facturaId, informacionCompra)).apply();

@@ -17,7 +17,7 @@ public class Direccion implements ValueObject<Direccion.Props> {
         if (calle.length() < 3){
             throw new IllegalArgumentException("El formato de la calle no es valido");
         }
-        if(nomenclatura.length() > 5){
+        if(nomenclatura.length()  > 15){
             throw new IllegalArgumentException("El formato de la nomenclatura no es valido");
         }
         this.calle = Objects.requireNonNull(calle);

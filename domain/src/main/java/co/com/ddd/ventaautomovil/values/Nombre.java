@@ -8,7 +8,7 @@ public class Nombre implements ValueObject<String> {
     private final String value;
 
     public Nombre(String nombre) {
-        if (nombre.length() > 2){
+        if (nombre.length() < 2){
             throw new IllegalArgumentException("El nombre no cumple con el formato");
         }
         this.value = Objects.requireNonNull(nombre);

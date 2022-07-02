@@ -1,13 +1,10 @@
-package cuenta;
-
-import static org.junit.jupiter.api.Assertions.*;
+package co.com.ddd.cuenta;
 
 import co.com.ddd.cuenta.commands.CrearCuentaCommand;
 import co.com.ddd.cuenta.events.CuentaCreada;
 import co.com.ddd.cuenta.values.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,7 +15,7 @@ class CrearCuentaUseCaseTest {
     CrearCuentaUseCase useCase;
 
     @Test
-    public void crearBebida() {
+    public void crearCuenta() {
         //arrange
         CuentaId cuentaId = CuentaId.of("1");
         UsuarioSistemaId usuarioSistemaId = UsuarioSistemaId.of("1");
@@ -34,7 +31,8 @@ class CrearCuentaUseCaseTest {
         Nombre nombre = new Nombre("xxxxxx");
         Modelo modelo = new Modelo("2015");
 
-        var command = new CrearCuentaCommand(cuentaId,
+        var command = new CrearCuentaCommand(
+                cuentaId,
                 usuarioSistemaId,
                 nombreUsuario,
                 password,

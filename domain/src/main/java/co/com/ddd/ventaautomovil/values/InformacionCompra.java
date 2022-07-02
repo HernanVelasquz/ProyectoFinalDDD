@@ -20,7 +20,7 @@ public class InformacionCompra implements ValueObject<InformacionCompra.Props> {
         if(tipoVehiculo.length() > 10){throw new IllegalArgumentException("El formato ingresado para el tipo vehiculo");}
         if (modelo.length() < 2){throw new IllegalArgumentException("El formato del modelo no es valido");}
         if (modelo.length() > 4){throw new IllegalArgumentException("El fomato del modelo es invalido");}
-        if (marca.length() > 3){throw new IllegalArgumentException("El formato de la marca no es valida");}
+        if (marca.length() < 3){throw new IllegalArgumentException("El formato de la marca no es valida");}
 
         this.tipoVehiculo = Objects.requireNonNull(tipoVehiculo);
         this.modelo = Objects.requireNonNull(modelo);

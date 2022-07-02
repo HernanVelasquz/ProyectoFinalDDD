@@ -51,4 +51,13 @@ public class DocumentoEmpleado implements ValueObject<DocumentoEmpleado.Props> {
             }
         };
     }
+
+    public DocumentoEmpleado cambiarTipoDocumento(String tipoDocumento){
+        return new DocumentoEmpleado(tipoDocumento, this.numeroDocumento);
+    }
+
+    public DocumentoEmpleado cambiarNumeroDocumento(String numeroDocumento){
+        return new DocumentoEmpleado(this.tipoDocumento, numeroDocumento);
+    }
+
 }

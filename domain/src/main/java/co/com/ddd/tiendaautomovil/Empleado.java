@@ -13,8 +13,8 @@ public class Empleado extends Entity<EmpleadoId> {
     protected Email email;
     protected Nombre nombre;
 
-    public Empleado(EmpleadoId entityId, DocumentoEmpleado documentoEmpleado, Email email, Nombre nombre) {
-        super(entityId);
+    public Empleado(EmpleadoId empleadoId, DocumentoEmpleado documentoEmpleado, Email email, Nombre nombre) {
+        super(empleadoId);
         this.documentoEmpleado = documentoEmpleado;
         this.email = email;
         this.nombre = nombre;
@@ -22,11 +22,11 @@ public class Empleado extends Entity<EmpleadoId> {
     public void actualizarDocumentoEmpleado(DocumentoEmpleado documentoEmpleado){
         this.documentoEmpleado = Objects.requireNonNull(documentoEmpleado);
     }
-    public void actualizarDocumento(Email email){
-        this.email = Objects.requireNonNull(email);
+    public void actualizarEmailEmpleado(Email email){
+        this.email = email.cambiaremail(Objects.requireNonNull(email.value()));
     }
-    public void actualizarNombre(Nombre nombre){
-        this.nombre = Objects.requireNonNull(nombre);
+    public void actualizarNombreEmpleado(Nombre nombre){
+        this.nombre = nombre.cambiarNombre(Objects.requireNonNull(nombre.value()));
     }
     public DocumentoEmpleado documentoEmpleado() {
         return documentoEmpleado;

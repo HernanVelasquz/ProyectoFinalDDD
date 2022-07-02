@@ -25,10 +25,6 @@ x
 Hdomain/src/main/java/co/com/ddd/cuenta/events/ConcesionarioAgregado.java,f\f\ffec7a8cac3ad6f5de1410cc231214fd4b87947d
 {
 Kdomain/src/main/java/co/com/ddd/ventaautomovil/values/VentaAutomovilId.java,c\9\c9a016da7dd65098f24e668261900c6d00f8f518
-q
-Adomain/src/main/java/co/com/ddd/ventaautomovil/values/Nombre.java,b\5\b529156c02c8e0c9be282d6df6f7ce07e8ee5956
-p
-@domain/src/main/java/co/com/ddd/ventaautomovil/values/Fecha.java,7\2\7209f4eda7f9fdb2b829dec7105cda378ff40a8f
 t
 Ddomain/src/main/java/co/com/ddd/ventaautomovil/values/FacturaId.java,f\b\fbe88f1bb80c56ad6991d445adc770c51abc28e0
 r
