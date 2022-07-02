@@ -6,22 +6,21 @@ import java.util.Objects;
 
 public class DireccionConcesionario implements ValueObject<DireccionConcesionario.Props> {
 
-
     public interface Props {
-        String tipoDocumento();
+        String tipoDireccion();
         String numeroDocumento();
     }
-    private final String tipoDocumento;
+    private final String tipoDireccion;
     private final String numeroDocumento;
 
-    public DireccionConcesionario(String tipoDocumento, String numeroDocumento) {
-        if (tipoDocumento.length() < 1){
+    public DireccionConcesionario(String tipoDireccion, String numeroDocumento) {
+        if (tipoDireccion.length() < 1){
             throw new IllegalArgumentException("El tipo de documento no es valido");
         }
         if (numeroDocumento.length() < 5 || numeroDocumento.length() > 10){
             throw new IllegalArgumentException("El numero de documento no es valido");
         }
-        this.tipoDocumento = Objects.requireNonNull(tipoDocumento);
+        this.tipoDireccion = Objects.requireNonNull(tipoDireccion);
         this.numeroDocumento = Objects.requireNonNull(numeroDocumento);
     }
 
@@ -30,20 +29,20 @@ public class DireccionConcesionario implements ValueObject<DireccionConcesionari
         if (this == o) return true;
         if (!(o instanceof DireccionConcesionario)) return false;
         DireccionConcesionario that = (DireccionConcesionario) o;
-        return Objects.equals(tipoDocumento, that.tipoDocumento) && Objects.equals(numeroDocumento, that.numeroDocumento);
+        return Objects.equals(tipoDireccion, that.tipoDireccion) && Objects.equals(numeroDocumento, that.numeroDocumento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tipoDocumento, numeroDocumento);
+        return Objects.hash(tipoDireccion, numeroDocumento);
     }
 
     @Override
     public Props value() {
         return new Props() {
             @Override
-            public String tipoDocumento() {
-                return tipoDocumento;
+            public String tipoDireccion() {
+                return tipoDireccion;
             }
 
             @Override

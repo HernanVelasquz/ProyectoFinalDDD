@@ -20,12 +20,18 @@ public class Factura extends Entity<FacturaId> {
         this.fecha = fecha;
     }
 
-    public void editarCantidad(Cantidad cantidad){
-        this.cantidad = Objects.requireNonNull(cantidad);
+    public void actualizarCantidad(Cantidad cantidad){
+        this.cantidad = cantidad.cambiarCantidad(Objects.requireNonNull(cantidad.value()));
     }
 
-    public void editarInformacionCompra(InformacionCompra informacionCompra){
-        this.informacionCompra = Objects.requireNonNull(informacionCompra);
+    public void actualizarModeloVehiculo(InformacionCompra informacionCompra){
+        this.informacionCompra = informacionCompra.cambarModeloVehiculo(informacionCompra.value().modelo());
+    }
+    public void actualizarTipoVehiculo(InformacionCompra informacionCompra){
+        this.informacionCompra = informacionCompra.cambarTipoVehiculo(informacionCompra.value().tipoVehiculo());
+    }
+    public void actualizarMarca(InformacionCompra informacionCompra){
+        this.informacionCompra = informacionCompra.cambarMarcaVehiculo(informacionCompra.value().marca());
     }
 
     public Cantidad getCantidad() {

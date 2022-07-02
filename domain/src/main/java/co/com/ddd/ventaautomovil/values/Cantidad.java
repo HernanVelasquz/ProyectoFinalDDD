@@ -17,4 +17,8 @@ public class Cantidad implements ValueObject<Integer> {
     public Integer value() {
         return value;
     }
+
+    public Cantidad cambiarCantidad(int value){
+        return new Cantidad(value);
+    }
 }

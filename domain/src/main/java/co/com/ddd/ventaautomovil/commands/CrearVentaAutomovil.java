@@ -1,10 +1,10 @@
-package co.com.ddd.ventaautomovil.events;
+package co.com.ddd.ventaautomovil.commands;
 
 import co.com.ddd.cuenta.values.CuentaId;
 import co.com.ddd.ventaautomovil.values.*;
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 
-public class VentaAutomovilCreada extends DomainEvent {
+public class CrearVentaAutomovil extends Command {
     private final VentaAutomovilId ventaAutomovilId;
     private final CuentaId cuentaId;
     private final FacturaId facturaId;
@@ -17,8 +17,7 @@ public class VentaAutomovilCreada extends DomainEvent {
     private final Nombre nombre;
     private final Direccion direccion;
 
-    public VentaAutomovilCreada(VentaAutomovilId ventaAutomovilId, CuentaId cuentaId,FacturaId facturaId, Cantidad cantidad, InformacionCompra informacionCompra, Fecha fecha, ClienteId clienteId, DocumentoCliente documentoCliente, Celular celular, Nombre nombre, Direccion direccion) {
-        super("sofka.ventaautomovil.VentaAutomovilCreada");
+    public CrearVentaAutomovil(VentaAutomovilId ventaAutomovilId, CuentaId cuentaId, FacturaId facturaId, Cantidad cantidad, InformacionCompra informacionCompra, Fecha fecha, ClienteId clienteId, DocumentoCliente documentoCliente, Celular celular, Nombre nombre, Direccion direccion) {
         this.ventaAutomovilId = ventaAutomovilId;
         this.cuentaId = cuentaId;
         this.facturaId = facturaId;
@@ -31,8 +30,7 @@ public class VentaAutomovilCreada extends DomainEvent {
         this.nombre = nombre;
         this.direccion = direccion;
     }
-
-    public VentaAutomovilId ventaAutomovilId() {
+    public VentaAutomovilId ventaAutomovilId(){
         return ventaAutomovilId;
     }
 
@@ -56,23 +54,23 @@ public class VentaAutomovilCreada extends DomainEvent {
         return fecha;
     }
 
-    public ClienteId clienteId() {
+    public ClienteId getClienteId() {
         return clienteId;
     }
 
-    public DocumentoCliente documentoCliente() {
+    public DocumentoCliente getDocumentoCliente() {
         return documentoCliente;
     }
 
-    public Celular celular() {
+    public Celular getCelular() {
         return celular;
     }
 
-    public Nombre nombre() {
+    public Nombre getNombre() {
         return nombre;
     }
 
-    public Direccion direccion() {
+    public Direccion getDireccion() {
         return direccion;
     }
 }

@@ -59,4 +59,13 @@ public class InformacionCompra implements ValueObject<InformacionCompra.Props> {
             }
         };
     }
+    public InformacionCompra cambarTipoVehiculo(String tipoVehiculo){
+        return new InformacionCompra(tipoVehiculo, this.modelo,this.marca);
+    }
+    public InformacionCompra cambarModeloVehiculo(String modelo){
+        return new InformacionCompra(this.tipoVehiculo, modelo,this.marca);
+    }
+    public InformacionCompra cambarMarcaVehiculo(String marca){
+        return new InformacionCompra(this.tipoVehiculo, this.modelo,marca);
+    }
 }

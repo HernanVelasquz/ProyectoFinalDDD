@@ -1,9 +1,9 @@
-package co.com.ddd.cuenta.events;
+package co.com.ddd.cuenta.commands;
 
 import co.com.ddd.cuenta.values.*;
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 
-public class CuentaCreada extends DomainEvent {
+public class CrearCuentaCommand extends Command {
     private final CuentaId cuentaId;
     private final UsuarioSistemaId usuarioSistemaId;
     private final NombreUsuario nombreUsuario;
@@ -18,8 +18,7 @@ public class CuentaCreada extends DomainEvent {
     private final Nombre nombre;
     private final Modelo modelo;
 
-    public CuentaCreada(CuentaId cuentaId,UsuarioSistemaId usuarioSistemaId, NombreUsuario nombreUsuario, Password password, Email email, ConcesionarioId concesionarioId, DireccionConcesionario direccionConcesionario, MenuAutosId menuAutosId, Marca marca, Precio precio,Tipo tipo, Nombre nombre, Modelo modelo) {
-        super("sofka.cuenta.CuentaCreada");
+    public CrearCuentaCommand(CuentaId cuentaId, UsuarioSistemaId usuarioSistemaId, NombreUsuario nombreUsuario, Password password, Email email, ConcesionarioId concesionarioId, DireccionConcesionario direccionConcesionario, MenuAutosId menuAutosId, Marca marca, Precio precio, Tipo tipo, Nombre nombre, Modelo modelo) {
         this.cuentaId = cuentaId;
         this.usuarioSistemaId = usuarioSistemaId;
         this.nombreUsuario = nombreUsuario;
@@ -35,54 +34,55 @@ public class CuentaCreada extends DomainEvent {
         this.modelo = modelo;
     }
 
-    public CuentaId cuentaId() {
+    public CuentaId getCuentaId() {
         return cuentaId;
     }
-    public UsuarioSistemaId usuarioSistemaId() {
+
+    public UsuarioSistemaId getUsuarioSistemaId() {
         return usuarioSistemaId;
     }
 
-    public NombreUsuario nombreUsuario() {
+    public NombreUsuario getNombreUsuario() {
         return nombreUsuario;
     }
 
-    public Password password() {
+    public Password getPassword() {
         return password;
     }
 
-    public Email email() {
+    public Email getEmail() {
         return email;
     }
 
-    public ConcesionarioId concesionarioId() {
+    public ConcesionarioId getConcesionarioId() {
         return concesionarioId;
     }
 
-    public DireccionConcesionario direccionConcesionario() {
+    public DireccionConcesionario getDireccionConcesionario() {
         return direccionConcesionario;
     }
 
-    public MenuAutosId menuAutosId() {
+    public MenuAutosId getMenuAutosId() {
         return menuAutosId;
     }
 
-    public Marca marca() {
+    public Marca getMarca() {
         return marca;
     }
 
-    public Precio precio() {
-        return precio;
-    }
-
-    public Tipo tipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public Nombre nombre() {
+    public Precio getPrecio() {
+        return precio;
+    }
+
+    public Nombre getNombre() {
         return nombre;
     }
 
-    public Modelo modelo() {
+    public Modelo getModelo() {
         return modelo;
     }
 }

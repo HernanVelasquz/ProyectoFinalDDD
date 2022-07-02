@@ -6,17 +6,16 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.ddd.ventaautomovil.values.VentaAutomovilId;
 
+import java.util.List;
 import java.util.Objects;
 
 
 public class Cuenta extends AggregateEvent<CuentaId> {
     protected UsuarioSistema usuarioSistema;
     protected Concesionario concesionario;
-    protected VentaAutomovilId ventaAutomovilId;
     protected MenuAutos autos;
-    private UsuarioSistemaId usuarioSistemaId;
-    private ConcesionarioId concesionarioId;
-    private MenuAutosId menuAutosId;
+    protected CuentaId cuentaId;
+
 
     public Cuenta(CuentaId entityId, UsuarioSistemaId usuarioSistemaId,NombreUsuario nombreUsuario, Password password, Email email, ConcesionarioId concesionarioId, DireccionConcesionario direccionConcesionario, MenuAutosId menuAutosId, Marca marca, Precio precio,Tipo tipo, Nombre nombre, Modelo modelo) {
         super(entityId);
@@ -33,7 +32,14 @@ public class Cuenta extends AggregateEvent<CuentaId> {
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(modelo);
         var cuentaId = new CuentaId();
-        appendChange(new CuentaCreada(usuarioSistemaId, nombreUsuario, password,email, concesionarioId, direccionConcesionario, menuAutosId,marca, precio,tipo, nombre, modelo)).apply();
+        appendChange(new CuentaCreada(cuentaId,usuarioSistemaId, nombreUsuario, password,email, concesionarioId, direccionConcesionario, menuAutosId,marca, precio,tipo, nombre, modelo)).apply();
+        subscribe(new CuentaChange(this));
+    }
+
+    public static Cuenta from(CuentaId id, List<DomainEvent> events){
+        var cuenta = new Cuenta((id));
+        events.forEach(cuenta::applyEvent);
+        return cuenta;
     }
 
     private Cuenta(CuentaId idCuenta){
@@ -51,7 +57,6 @@ public class Cuenta extends AggregateEvent<CuentaId> {
         Objects.requireNonNull(nombre);
         appendChange(new NombreActualizado(menuAutosId,nombre)).apply();
     }
-
 
     public void actualizarPassword(CuentaId cuentaId, Password password){
         Objects.requireNonNull(cuentaId);

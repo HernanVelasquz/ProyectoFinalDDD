@@ -1,6 +1,7 @@
 package co.com.ddd.cuenta;
 
 import co.com.ddd.cuenta.values.*;
+import co.com.ddd.ventaautomovil.values.Cantidad;
 import co.com.sofka.domain.generic.Entity;
 
 import java.util.Objects;
