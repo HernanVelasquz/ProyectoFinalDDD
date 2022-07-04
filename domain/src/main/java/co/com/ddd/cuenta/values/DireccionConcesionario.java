@@ -17,7 +17,7 @@ public class DireccionConcesionario implements ValueObject<DireccionConcesionari
         if (tipoDireccion.length() < 1){
             throw new IllegalArgumentException("El tipo de documento no es valido");
         }
-        if (numeroDocumento.length() < 5 || numeroDocumento.length() > 10){
+        if (numeroDocumento.length() < 5){
             throw new IllegalArgumentException("El numero de documento no es valido");
         }
         this.tipoDireccion = Objects.requireNonNull(tipoDireccion);

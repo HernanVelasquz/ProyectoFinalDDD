@@ -6,6 +6,7 @@ import co.com.ddd.tiendaautomovil.values.EmpleadoId;
 import co.com.ddd.tiendaautomovil.values.Nombre;
 import co.com.sofka.domain.generic.Entity;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Empleado extends Entity<EmpleadoId> {
@@ -19,6 +20,8 @@ public class Empleado extends Entity<EmpleadoId> {
         this.email = email;
         this.nombre = nombre;
     }
+
+
     public void actualizarDocumentoEmpleado(DocumentoEmpleado documentoEmpleado){
         this.documentoEmpleado = Objects.requireNonNull(documentoEmpleado);
     }

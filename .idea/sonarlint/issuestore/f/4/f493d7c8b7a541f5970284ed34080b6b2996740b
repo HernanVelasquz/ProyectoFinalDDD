@@ -1,0 +1,8 @@
+
+W	java:S107"BConstructor has 11 parameters, which is greater than 7 authorized.(Ø•¼“
+A
+java:S2160"+Override the "equals" method in this class.(µ¯±²
+H
+java:S1068"-Remove this unused "facturaId" private field.(®Ñùÿÿÿÿÿÿ
+C
+java:S1068"-Remove this unused "clienteId" private field.(ùªè¥
