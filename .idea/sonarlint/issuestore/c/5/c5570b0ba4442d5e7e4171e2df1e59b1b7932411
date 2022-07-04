@@ -1,0 +1,5 @@
+
+_
+java:S6206"DRefactor this class declaration to use 'record Email(String value)'.(Íœºûùÿÿÿÿ
+g
+java:S5998"LRefactor this repetition that can lead to a stack overflow for large inputs.(‚úÐâüÿÿÿÿ

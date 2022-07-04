@@ -4,11 +4,11 @@ import co.com.ddd.tiendaautomovil.values.Email;
 import co.com.ddd.tiendaautomovil.values.EmpleadoId;
 import co.com.sofka.domain.generic.Command;
 
-public class ActualizarEmailEmpleado extends Command {
+public class ActualizarEmailEmpleadoCommand extends Command {
     private final EmpleadoId empleadoId;
     private final Email email;
 
-    public ActualizarEmailEmpleado(EmpleadoId empleadoId, Email email) {
+    public ActualizarEmailEmpleadoCommand(EmpleadoId empleadoId, Email email) {
         this.empleadoId = empleadoId;
         this.email = email;
     }

@@ -2,6 +2,7 @@ package co.com.ddd.tiendaautomovil.events;
 
 import co.com.ddd.tiendaautomovil.values.Email;
 import co.com.ddd.tiendaautomovil.values.EmpleadoId;
+import co.com.ddd.tiendaautomovil.values.TiendadId;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class EmailEmpleadoActualizado extends DomainEvent {
